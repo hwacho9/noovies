@@ -1,18 +1,28 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { View,Text } from 'react-native';
+import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Asset } from 'expo-asset';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+  const [loaded] = Font.useFonts(Ionicons.font);
     
   useEffect(() => {
     async function prepare() {
       try {
         // Pre-load fonts, make any API calls you need to do here
+
         await Font.loadAsync(Entypo.font);
+        await Font.loadAsync(Ionicons.font);
+
+
+        await Asset.loadAsync(require('./123.png'));
         // Artificially delay for two seconds to simulate a slow loading
         // experience. Please remove this if you copy and paste the code!
         await new Promise(resolve => setTimeout(resolve, 2000));
