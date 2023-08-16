@@ -1,5 +1,7 @@
 package com.noovies;
 
+import android.os.Bundle;
+
 import android.app.Application;
 import android.content.res.Configuration;
 import androidx.annotation.NonNull;

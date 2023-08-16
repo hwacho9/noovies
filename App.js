@@ -5,13 +5,15 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Asset } from 'expo-asset';
+import Tabs from './navigation/Tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [loaded] = Font.useFonts(Ionicons.font);
+  // const [loaded] = Font.useFonts(Ionicons.font);
     
   useEffect(() => {
     async function prepare() {
@@ -53,12 +55,11 @@ export default function App() {
   }
 
   return (
-  <View
-    style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    onLayout={onLayoutRootView}>
-    <Text>SplashScreen Demo! 👋</Text>
-    <Entypo name="rocket" size={30} />
-  </View>)
+    <NavigationContainer>
+      <View onLayout={onLayoutRootView}></View>
+      <Tabs />
+    </NavigationContainer>
+  )
 }
 
 
