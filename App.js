@@ -13,6 +13,8 @@ import {
 } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "react-native";
+import Stack from "./navigation/Stack";
+import Root from "./navigation/Root";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -65,7 +67,9 @@ export default function App() {
         <NavigationContainer>
             <StatusBar style="auto" />
             <View onLayout={onLayoutRootView}></View>
-            <Tabs />
+            {/* <Tabs /> */}
+            {/* <Stack /> */}
+            <Root />
         </NavigationContainer>
     );
 }

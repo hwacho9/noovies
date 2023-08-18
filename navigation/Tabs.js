@@ -1,6 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Movies from "../screens/Movies";
+import Stack from "./Stack";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
 import { View, Text } from "react-native";
@@ -57,7 +58,6 @@ const Tabs = () => {
                 options={{
                     // tabBarBadge: "hi", //빨간 알람 점
                     tabBarIcon: ({ focused, color, size }) => {
-                        console.log(focused, color, size);
                         return (
                             <Ionicons
                                 name="ios-tv-outline"
@@ -73,7 +73,6 @@ const Tabs = () => {
                 component={Search}
                 options={{
                     tabBarIcon: ({ focused, color, size }) => {
-                        console.log(focused, color, size);
                         return (
                             <Ionicons
                                 name={
