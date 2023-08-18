@@ -6,8 +6,13 @@ import * as Font from "expo-font";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Asset } from "expo-asset";
 import Tabs from "./navigation/Tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+    NavigationContainer,
+    DarkTheme,
+    DefaultTheme,
+} from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import { useColorScheme } from "react-native";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -39,6 +44,7 @@ export default function App() {
         prepare();
     }, []);
 
+    const isDark = useColorScheme() === "dark";
     const onLayoutRootView = useCallback(async () => {
         if (appIsReady) {
             // This tells the splash screen to hide immediately! If we call this after
@@ -55,7 +61,7 @@ export default function App() {
     }
 
     return (
-        <NavigationContainer>
+        <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
             <StatusBar style="auto" />
             <View onLayout={onLayoutRootView}></View>
             <Tabs />
