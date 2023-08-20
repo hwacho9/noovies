@@ -27,7 +27,6 @@ export default function App() {
         async function prepare() {
             try {
                 // Pre-load fonts, make any API calls you need to do here
-
                 await Font.loadAsync(Entypo.font);
                 await Font.loadAsync(Ionicons.font);
 
