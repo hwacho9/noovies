@@ -10,6 +10,7 @@ import {
     NavigationContainer,
     DarkTheme,
     DefaultTheme,
+    ThemeProvider,
 } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "react-native";
